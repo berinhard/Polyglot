@@ -28,13 +28,19 @@ except ImportError:
     
     import Queue as queue
 
-ROOT = Tk.Tk()
+ROOT = None
+
+def get_root_gui():
+    global ROOT
+    if not ROOT:
+        ROOT = Tk.Tk()
+    return ROOT
 
 class BasicInterface:
     """ Class for displaying basic text input data.
     """
     def __init__(self):
-        self.root = ROOT
+        self.root = get_root_gui()
         self.root.configure(background=COLOURS["Background"])
         self.root.resizable(True, True)
 

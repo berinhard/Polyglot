@@ -2,7 +2,7 @@ from __future__ import absolute_import
 
 from .tkimport import Tk, tkMessageBox, tkFileDialog
 
-from .interface import ROOT
+from .interface import get_root_gui
 from ..interpreter import DEFAULT_INTERPRETERS, DummyInterpreter
 
 import functools
@@ -14,7 +14,7 @@ class ConnectionInput:
         self.client  = client
         self.using_gui_input = get_info
         self.options = kwargs
-        self.root=ROOT
+        self.root = get_root_gui()
 
         # If there is all the info, go straight to main interface
 
